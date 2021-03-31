@@ -63,5 +63,13 @@ namespace ComponentsSelectTest.Caller
 
             return "ok";
         }
+
+        [HttpGet("log")]
+        public string Test()
+        {
+            string info = $"{"日志测试"},{DateTime.UtcNow.Ticks}";
+            _logger.LogError(info);
+            return info;
+        }
     }
 }
