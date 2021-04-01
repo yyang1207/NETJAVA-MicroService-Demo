@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsSelectTest.ServiceA", "src\ComponentsSelectTest.ServiceA\ComponentsSelectTest.ServiceA.csproj", "{920F843D-7365-4324-BE5A-CD1E1F910347}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentsSelectTest.Caller", "src\ComponentsSelectTest.Caller\ComponentsSelectTest.Caller.csproj", "{020A6461-A5CF-4E8B-BC77-8458F24B95DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsSelectTest.Caller", "src\ComponentsSelectTest.Caller\ComponentsSelectTest.Caller.csproj", "{020A6461-A5CF-4E8B-BC77-8458F24B95DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentsSelectTest.ServiceB", "src\ComponentsSelectTest.ServiceB\ComponentsSelectTest.ServiceB.csproj", "{230873E4-5AAB-4D5F-97F8-303554DDD633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsSelectTest.ServiceB", "src\ComponentsSelectTest.ServiceB\ComponentsSelectTest.ServiceB.csproj", "{230873E4-5AAB-4D5F-97F8-303554DDD633}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

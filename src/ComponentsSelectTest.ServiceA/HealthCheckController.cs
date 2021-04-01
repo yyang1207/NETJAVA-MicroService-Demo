@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace ComponentsSelectTest.ServiceA
     [ApiController]
     public class HealthCheckController : ControllerBase
     {
+        private readonly ILogger<HealthCheckController> _logger;
+        public HealthCheckController(ILogger<HealthCheckController> logger)
+        {
+            _logger = logger;
+        }
+
         [HttpGet]
         public string Get()
         {
+            _logger.LogError("ServiceA Called Logs");
             return "ServiceA-OK";
         }
     }
