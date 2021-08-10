@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:9002",
+      "applicationUrl": "http://localhost:1168",
       "sslPort": 0
     }
   },
@@ -14,18 +14,16 @@
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ComponentsSelectTest.ServiceB": {
+    "ComponentsSelectTest.ServiceF": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
-      "applicationUrl": "http://*:9002",
+      "applicationUrl": "http://*:9006",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }

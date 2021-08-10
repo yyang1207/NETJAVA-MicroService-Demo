@@ -44,11 +44,11 @@ namespace ComponentsSelectTest.Caller
 
             _logger.LogInformation($"============== begin {id} =====================");
 
-            var conn = _configuration.GetConnectionString("Default");
-            _logger.LogInformation($"{id} conn = {conn}");
+            //var conn = _configuration.GetConnectionString("Default");
+            //_logger.LogInformation($"{id} conn = {conn}");
 
-            var version = _configuration["version"];
-            _logger.LogInformation($"{id} version = {version}");
+            //var version = _configuration["version"];
+            //_logger.LogInformation($"{id} version = {version}");
 
             var str1 = Newtonsoft.Json.JsonConvert.SerializeObject(_settings);
             _logger.LogInformation($"{id} IOptions = {str1}");

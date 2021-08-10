@@ -14,8 +14,9 @@ namespace ComponentsSelectTest.Caller
     {
         public static void Main(string[] args)
         {
-            NLogBuilder.ConfigureNLog("nlog.config");
-            CreateHostBuilder(args).UseNLog().Build().Run();
+            //NLogBuilder.ConfigureNLog("nlog.config");
+            //CreateHostBuilder(args).UseNLog().Build().Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -26,7 +27,7 @@ namespace ComponentsSelectTest.Caller
 
                     // read configuration from config files
                     // it will use default json parser to parse the configuration store in nacos server.
-                    builder.AddNacosV2Configuration(c.GetSection("NacosConfig"));
+                    builder.AddNacosConfiguration(c.GetSection("NacosConfig"));
                     // you also can specify ini or yaml parser as well.
                     // builder.AddNacosConfiguration(c.GetSection("NacosConfig"), Nacos.IniParser.IniConfigurationStringParser.Instance);
                     // builder.AddNacosConfiguration(c.GetSection("NacosConfig"), Nacos.YamlParser.YamlConfigurationStringParser.Instance);

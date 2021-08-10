@@ -1,6 +1,6 @@
 {
   "SkyWalking": {
-    "ServiceName": "Caller",
+    "ServiceName": "ServiceF",
     "Namespace": "",
     "HeaderVersions": [
       "sw8"
@@ -11,7 +11,7 @@
     },
     "Logging": {
       "Level": "Error",
-      "FilePath": ""
+      "FilePath": "logs\\skyapm-{Date}.log"
     },
     "Transport": {
       "Interval": 3000,

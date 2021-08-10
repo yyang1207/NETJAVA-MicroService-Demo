@@ -7,36 +7,33 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace ComponentsSelectTest.Caller
+namespace ComponentsSelectTest.ServiceD.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CallerController : ControllerBase
+    public class HealthCheckController : ControllerBase
     {
-        private readonly ILogger<CallerController> _logger;
+        private readonly ILogger<HealthCheckController> _logger;
         private readonly Nacos.V2.INacosNamingService _svc;
 
-        public CallerController(ILogger<CallerController> logger,Nacos.V2.INacosNamingService svc)
+        public HealthCheckController(ILogger<HealthCheckController> logger, Nacos.V2.INacosNamingService svc)
         {
             _logger = logger;
             _svc = svc;
         }
 
-        [HttpGet("test")]
-        public async Task<string> Test()
+        [HttpGet]
+        public async Task<string> Get()
         {
-            //_logger.LogInformation("Call ServiceA HealthCkeck");
-            string sva = await GetHealthInfo("ServiceA", "DEFAULT_GROUP", "api/HealthCheck");
+            //_logger.LogError("ServiceD Called Logs");
 
-            //_logger.LogInformation("Call ServiceB HealthCheck");
-            string svb = await GetHealthInfo("ServiceB", "DEFAULT_GROUP", "api/HealthCheck");
+            string svf = await GetHealthInfo("ServiceF", "DEFAULT_GROUP", "api/HealthCheck");
 
-            string svd = await GetHealthInfo("ServiceD", "DEFAULT_GROUP", "api/HealthCheck");
-
-            return $"{sva},{svb},{svd}";
+            return $"ServiceD-OK,{svf}";
         }
 
-        private async Task<string> GetHealthInfo(string serviceName,string groupName,string path)
+
+        private async Task<string> GetHealthInfo(string serviceName, string groupName, string path)
         {
             // need to know the service name.
             var instance = await _svc.SelectOneHealthyInstance(serviceName, groupName);

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="-20210412" />
     <None Remove="internal-nlog.txt" />
   </ItemGroup>
 
