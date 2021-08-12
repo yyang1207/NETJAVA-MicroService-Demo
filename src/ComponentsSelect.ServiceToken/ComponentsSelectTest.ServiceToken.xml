@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ComponentsSelectTest.ServiceToken</name>
+    </assembly>
+    <members>
+        <member name="T:ComponentsSelectTest.ServiceToken.AccessTokenResponse">
+            <summary>
+            token对象
+            </summary>
+        </member>
+        <member name="P:ComponentsSelectTest.ServiceToken.AccessTokenResponse.Success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ComponentsSelectTest.ServiceToken.AccessTokenResponse.ErrorMsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:ComponentsSelectTest.ServiceToken.AccessTokenResponse.AccessToken">
+            <summary>
+            token
+            </summary>
+        </member>
+        <member name="T:ComponentsSelectTest.ServiceToken.ClientCredentialsRequest">
+            <summary>
+            客户端凭证请求对象
+            </summary>
+        </member>
+        <member name="P:ComponentsSelectTest.ServiceToken.ClientCredentialsRequest.ClientId">
+            <summary>
+            客户端编号
+            </summary>
+        </member>
+        <member name="P:ComponentsSelectTest.ServiceToken.ClientCredentialsRequest.Secret">
+            <summary>
+            秘钥
+            </summary>
+        </member>
+        <member name="P:ComponentsSelectTest.ServiceToken.ClientCredentialsRequest.Scopes">
+            <summary>
+            申请的scopes范围
+            </summary>
+        </member>
+        <member name="T:ComponentsSelectTest.ServiceToken.Controllers.TokensController">
+            <summary>
+            token控制器
+            </summary>
+        </member>
+        <member name="M:ComponentsSelectTest.ServiceToken.Controllers.TokensController.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="configuration">配置信息</param>
+        </member>
+        <member name="M:ComponentsSelectTest.ServiceToken.Controllers.TokensController.Post(ComponentsSelectTest.ServiceToken.ClientCredentialsRequest)">
+            <summary>
+            post方式获取token
+            </summary>
+            <param name="infos">client凭证模式参数</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:ComponentsSelectTest.ServiceToken.Controllers.TokensController.Get(System.String,System.String,System.String)">
+            <summary>
+            get方式获取token
+            </summary>
+            <param name="clientid">客户端id</param>
+            <param name="secret">秘钥</param>
+            <param name="scopes">需要的scopes</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="T:ComponentsSelect.ServiceToken.Startup">
+            <summary>
+            启动类
+            </summary>
+        </member>
+        <member name="M:ComponentsSelect.ServiceToken.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="configuration">配置项</param>
+        </member>
+        <member name="P:ComponentsSelect.ServiceToken.Startup.Configuration">
+            <summary>
+            配置项
+            </summary>
+        </member>
+        <member name="M:ComponentsSelect.ServiceToken.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            服务注册
+            </summary>
+            <param name="services">服务集合</param>
+        </member>
+        <member name="M:ComponentsSelect.ServiceToken.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            管道中间件注册
+            </summary>
+            <param name="app">app管道</param>
+            <param name="env">环境变量</param>
+        </member>
+    </members>
+</doc>

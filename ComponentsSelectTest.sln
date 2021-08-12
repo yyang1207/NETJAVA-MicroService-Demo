@@ -9,9 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsSelectTest.Caller
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsSelectTest.ServiceB", "src\ComponentsSelectTest.ServiceB\ComponentsSelectTest.ServiceB.csproj", "{230873E4-5AAB-4D5F-97F8-303554DDD633}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentsSelectTest.ServiceD", "src\ComponentsSelectTest.ServiceD\ComponentsSelectTest.ServiceD.csproj", "{2AED7AFD-13BD-4452-AEB7-69CC50A8920F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsSelectTest.ServiceD", "src\ComponentsSelectTest.ServiceD\ComponentsSelectTest.ServiceD.csproj", "{2AED7AFD-13BD-4452-AEB7-69CC50A8920F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentsSelectTest.ServiceF", "src\ComponentsSelectTest.ServiceF\ComponentsSelectTest.ServiceF.csproj", "{BE578BA3-DAB9-4210-B211-9CA99B6385DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsSelectTest.ServiceF", "src\ComponentsSelectTest.ServiceF\ComponentsSelectTest.ServiceF.csproj", "{BE578BA3-DAB9-4210-B211-9CA99B6385DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway.Ocelot", "src\Gateway.Ocelot\Gateway.Ocelot.csproj", "{380298D3-563D-4447-9B02-6F5F643E2C46}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.IdentityServer4", "src\Demo.IdentityServer4\Demo.IdentityServer4.csproj", "{634A6219-F144-44ED-8EC7-C734F47D8A19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentsSelectTest.ServiceToken", "src\ComponentsSelect.ServiceToken\ComponentsSelectTest.ServiceToken.csproj", "{6F395713-105E-4649-885C-776647ECE6FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{BE578BA3-DAB9-4210-B211-9CA99B6385DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE578BA3-DAB9-4210-B211-9CA99B6385DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE578BA3-DAB9-4210-B211-9CA99B6385DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380298D3-563D-4447-9B02-6F5F643E2C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380298D3-563D-4447-9B02-6F5F643E2C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380298D3-563D-4447-9B02-6F5F643E2C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380298D3-563D-4447-9B02-6F5F643E2C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{634A6219-F144-44ED-8EC7-C734F47D8A19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634A6219-F144-44ED-8EC7-C734F47D8A19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634A6219-F144-44ED-8EC7-C734F47D8A19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634A6219-F144-44ED-8EC7-C734F47D8A19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F395713-105E-4649-885C-776647ECE6FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F395713-105E-4649-885C-776647ECE6FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F395713-105E-4649-885C-776647ECE6FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F395713-105E-4649-885C-776647ECE6FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

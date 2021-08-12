@@ -26,3 +26,10 @@
 /src/ComponentsSelectTest.ServiceD/bin/Debug/netcoreapp3.1
 /src/ComponentsSelectTest.ServiceF/obj
 /src/ComponentsSelectTest.ServiceF/bin/Debug/netcoreapp3.1
+/src/ComponentsSelect.ServiceToken/obj
+/src/ComponentsSelect.ServiceToken/bin/Debug/netcoreapp3.1
+/src/Demo.IdentityServer4/obj
+/src/Demo.IdentityServer4/bin/Debug/netcoreapp3.1
+/src/Gateway.Ocelot/obj
+/src/Gateway.Ocelot/logs
+/src/Gateway.Ocelot/bin/Debug/netcoreapp3.1
