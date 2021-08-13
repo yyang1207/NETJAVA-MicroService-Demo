@@ -35,46 +35,46 @@ namespace Demo.IdentityServer4.MVC
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddIdentityServer()
-                //.AddConfigurationStore(options =>
-                //{
-                //    options.ConfigureDbContext = builder =>
-                //    {
-                //        builder.UseSqlServer(connectionString, options =>
-                //             options.MigrationsAssembly(migrationsAssembly));
-                //    };
-                //})
-                //.AddOperationalStore(options =>
-                //{
-                //    options.ConfigureDbContext = builder =>
-                //    {
-                //        builder.UseSqlServer(connectionString, options =>options.MigrationsAssembly(migrationsAssembly));
-                //    };
-                //})
-                //.AddDeveloperSigningCredential();
+                .AddConfigurationStore(options =>
+                {
+                    options.ConfigureDbContext = builder =>
+                    {
+                        builder.UseSqlServer(connectionString, options =>
+                             options.MigrationsAssembly(migrationsAssembly));
+                    };
+                })
+                .AddOperationalStore(options =>
+                {
+                    options.ConfigureDbContext = builder =>
+                    {
+                        builder.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationsAssembly));
+                    };
+                })
+                .AddDeveloperSigningCredential();
 
-                .AddDeveloperSigningCredential()        //This is for dev only scenarios when you don’t have a certificate to use.
-                .AddInMemoryApiScopes(Config.ApiScopes)
-                .AddInMemoryClients(Config.GetClients());
+            //.AddDeveloperSigningCredential()        //This is for dev only scenarios when you don’t have a certificate to use.
+            //.AddInMemoryApiScopes(Config.ApiScopes)
+            //.AddInMemoryClients(Config.GetClients());
 
 
-            // 2、用户相关的配置
-            services.AddDbContext<IdentityServerUserDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
+            //// 2、用户相关的配置
+            //services.AddDbContext<IdentityServerUserDbContext>(options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            //});
 
-            // 1.1 添加用户
-            services.AddIdentity<IdentityUser, IdentityRole>(options => {
-                // 1.2 密码复杂度配置
-                options.Password.RequireDigit = true;
-                options.Password.RequiredLength = 6;
-                options.Password.RequiredUniqueChars = 1;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-            })
-            .AddEntityFrameworkStores<IdentityServerUserDbContext>()
-            .AddDefaultTokenProviders();
+            //// 1.1 添加用户
+            //services.AddIdentity<IdentityUser, IdentityRole>(options => {
+            //    // 1.2 密码复杂度配置
+            //    options.Password.RequireDigit = true;
+            //    options.Password.RequiredLength = 6;
+            //    options.Password.RequiredUniqueChars = 1;
+            //    options.Password.RequireLowercase = false;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //    options.Password.RequireUppercase = false;
+            //})
+            //.AddEntityFrameworkStores<IdentityServerUserDbContext>()
+            //.AddDefaultTokenProviders();
 
             services.AddControllersWithViews();
         }
@@ -147,6 +147,15 @@ namespace Demo.IdentityServer4.MVC
                     foreach (var resource in Config.GetApiResources())
                     {
                         context.ApiResources.Add(resource.ToEntity());
+                    }
+                    context.SaveChanges();
+                }
+
+                if(!context.ApiScopes.Any())
+                {
+                    foreach(var apiscope in Config.ApiScopes)
+                    {
+                        context.ApiScopes.Add(apiscope.ToEntity());
                     }
                     context.SaveChanges();
                 }

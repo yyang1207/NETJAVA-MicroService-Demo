@@ -33,3 +33,4 @@
 /src/Gateway.Ocelot/obj
 /src/Gateway.Ocelot/logs
 /src/Gateway.Ocelot/bin/Debug/netcoreapp3.1
+*.xml
