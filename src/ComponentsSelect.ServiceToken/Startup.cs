@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Nacos.AspNetCore.V2;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,6 +42,7 @@ namespace ComponentsSelect.ServiceToken
         /// <param name="services">服务集合</param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddNacosAspNet(Configuration);
             services.AddControllers();
 
             // 添加Swagger

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ComponentsSelect.ServiceToken.Controllers
 {
+    /// <summary>
+    /// 天气预报
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -18,11 +21,19 @@ namespace ComponentsSelect.ServiceToken.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="logger">日志组件</param>
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// 获取当前天气预报
+        /// </summary>
+        /// <returns>返回集合</returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
