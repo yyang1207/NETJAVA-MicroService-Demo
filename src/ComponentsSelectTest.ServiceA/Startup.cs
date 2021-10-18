@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nacos.AspNetCore.V2;
+using SkyWalkingAgentExtension;
 
 namespace ComponentsSelectTest.ServiceA
 {
@@ -34,6 +35,8 @@ namespace ComponentsSelectTest.ServiceA
             }
 
             app.UseRouting();
+
+            app.UseRequestResponseLogging();
 
             app.UseEndpoints(endpoints =>
             {

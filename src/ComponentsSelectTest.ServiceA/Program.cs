@@ -14,9 +14,9 @@ namespace ComponentsSelectTest.ServiceA
     {
         public static void Main(string[] args)
         {
-            //NLogBuilder.ConfigureNLog("nlog.config");
-            //CreateHostBuilder(args).UseNLog().Build().Run();
-            CreateHostBuilder(args).Build().Run();
+            NLogBuilder.ConfigureNLog("nlog.config");
+            CreateHostBuilder(args).UseNLog().Build().Run();
+            //CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

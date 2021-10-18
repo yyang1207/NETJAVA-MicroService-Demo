@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway.Ocelot", "src\Gatew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.IdentityServer4", "src\Demo.IdentityServer4\Demo.IdentityServer4.csproj", "{634A6219-F144-44ED-8EC7-C734F47D8A19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentsSelectTest.ServiceToken", "src\ComponentsSelect.ServiceToken\ComponentsSelectTest.ServiceToken.csproj", "{6F395713-105E-4649-885C-776647ECE6FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentsSelectTest.ServiceToken", "src\ComponentsSelect.ServiceToken\ComponentsSelectTest.ServiceToken.csproj", "{6F395713-105E-4649-885C-776647ECE6FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

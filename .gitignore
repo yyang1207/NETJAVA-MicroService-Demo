@@ -34,3 +34,7 @@
 /src/Gateway.Ocelot/logs
 /src/Gateway.Ocelot/bin/Debug/netcoreapp3.1
 *.xml
+*.user
+/src/SkyWalkingAgentExtension/obj
+/src/SkyWalkingAgentExtension/bin
+/src/ComponentsSelectTest.ServiceA/bin/Release/netcoreapp3.1

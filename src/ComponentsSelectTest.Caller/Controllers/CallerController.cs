@@ -31,9 +31,9 @@ namespace ComponentsSelectTest.Caller
             //_logger.LogInformation("Call ServiceB HealthCheck");
             string svb = await GetHealthInfo("ServiceB", "DEFAULT_GROUP", "api/HealthCheck");
 
-            string svd = await GetHealthInfo("ServiceD", "DEFAULT_GROUP", "api/HealthCheck");
+            //string svd = await GetHealthInfo("ServiceD", "DEFAULT_GROUP", "api/HealthCheck");
 
-            return $"{sva},{svb},{svd}";
+            return $"{sva},{svb}";
         }
 
         private async Task<string> GetHealthInfo(string serviceName,string groupName,string path)
