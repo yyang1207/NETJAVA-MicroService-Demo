@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Nacos.AspNetCore.V2;
+using Servicecomb.Saga.Omega.AspNetCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,16 @@ namespace ComponentsSelectTest.ServiceB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddOmegaCore(option =>
+            //{
+            //    // your alpha-server address
+            //    option.GrpcServerAddress = "10.0.20.56:8080";
+            //    // your app identification
+            //    option.InstanceId = "ServiceB";
+            //    // your app name
+            //    option.ServiceName = "ComponentsSelectTest.ServiceB";
+            //});
+
             services.AddNacosAspNet(Configuration);
             services.AddControllers();
         }

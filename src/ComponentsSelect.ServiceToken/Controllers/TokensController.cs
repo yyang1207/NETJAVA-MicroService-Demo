@@ -66,7 +66,13 @@ namespace ComponentsSelectTest.ServiceToken.Controllers
             if (string.IsNullOrEmpty(idsUrl)) return (false,"身份认证服务不能为空");
 
             HttpClient client = new HttpClient();
-            var disco = await client.GetDiscoveryDocumentAsync(idsUrl);
+            //var disco = await client.GetDiscoveryDocumentAsync(idsUrl);
+            var disco = await client.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
+            {
+                Address = idsUrl,
+                Policy = new DiscoveryPolicy { RequireHttps = false }
+            });
+
             if (disco.IsError) return (false,$"获取tokenUrl失败:{disco.Error}");
 
             // request token
@@ -75,7 +81,7 @@ namespace ComponentsSelectTest.ServiceToken.Controllers
                 Address = disco.TokenEndpoint,
                 ClientId = clientid,
                 ClientSecret = secret,
-                Scope = scopes
+                Scope = scopes.Replace(","," ")
             });
 
             if (tokenResponse.IsError) return (false, $"获取token失败:{tokenResponse.Error}");

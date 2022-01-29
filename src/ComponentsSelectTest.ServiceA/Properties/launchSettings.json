@@ -1,6 +1,6 @@
-﻿{
+{
   "iisSettings": {
-    "windowsAuthentication": false, 
+    "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://10.1.5.209:9001",
@@ -12,6 +12,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
+        "TIMEZONE": "Asia/Shanghai",
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore"
       }
@@ -19,11 +20,18 @@
     "ComponentsSelectTest.ServiceA": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://*:9001",
       "environmentVariables": {
+        "TIMEZONE":"Asia/Shanghai",
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore"
-      }
+      },
+      "applicationUrl": "http://10.1.6.50:9001"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true
     }
   }
 }

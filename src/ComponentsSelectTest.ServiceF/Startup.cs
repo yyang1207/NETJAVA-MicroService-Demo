@@ -1,11 +1,15 @@
+using ComponentsSelectTest.ServiceF.DB;
+using DBConfig;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Nacos.AspNetCore.V2;
+using SkyWalkingAgentExtension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +29,17 @@ namespace ComponentsSelectTest.ServiceF
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<ConfigContext>(options => options.UseMySQL("Server=10.0.20.55;Port=3306;Database=dbconfig;User ID=root;Password=hotwind;Charset=utf8;SslMode=None;"),ServiceLifetime.Singleton);
+            //services.AddDbContext<StoreContext>(options => options.UseMySQL("Server=10.0.20.55;Port=3306;Database=dborder1;User ID=root;Password=hotwind;Charset=utf8;SslMode=None;"));
+            //services.AddSingleton<StoreChangeService>();
+            //services.AddDbContext<TestContext>(options => options.UseMySQL("Server=10.0.20.55;Port=3306;Database=dborder1;User ID=root;Password=hotwind;Charset=utf8;SslMode=None;"));
+
+            services.AddShard(Configuration);
+            services.AddDbContext<TestContext2>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultDB")));
+
+            services.AddCategoryShard(Configuration);
+            services.AddDbContext<TestContext3>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultDB")));
+
             services.AddNacosAspNet(Configuration);
             services.AddControllers();
         }
@@ -39,7 +54,7 @@ namespace ComponentsSelectTest.ServiceF
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseRequestResponseLogging();
 
             app.UseEndpoints(endpoints =>
             {

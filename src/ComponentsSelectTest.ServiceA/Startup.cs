@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nacos.AspNetCore.V2;
+using Servicecomb.Saga.Omega.AspNetCore.Extensions;
 using SkyWalkingAgentExtension;
 
 namespace ComponentsSelectTest.ServiceA
@@ -22,6 +23,16 @@ namespace ComponentsSelectTest.ServiceA
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddOmegaCore(option =>
+            //{
+            //    // your alpha-server address
+            //    option.GrpcServerAddress = "10.0.20.56:8080";
+            //    // your app identification
+            //    option.InstanceId = "ServiceA";
+            //    // your app name
+            //    option.ServiceName = "ComponentsSelectTest.ServiceA";
+            //});
+
             services.AddNacosAspNet(Configuration);
             services.AddControllers();
         }

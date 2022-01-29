@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Nacos;
+using Ocelot.Provider.Polly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace Gateway.Ocelot
 
             IdentityModelEventSource.ShowPII = true;
 
-            services.AddOcelot().AddNacosDiscovery();
+            services.AddOcelot().AddNacosDiscovery().AddPolly();//.AddNacosDiscovery()    .AddPolly()
 
             Console.WriteLine(identityServerOptions.AuthorityAddress);
             Console.WriteLine(identityServerOptions.ResourceName);

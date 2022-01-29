@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using SkyWalkingAgentExtension;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -25,7 +22,7 @@ namespace ComponentsSelectTest.ServiceD.Controllers
         [HttpGet]
         public async Task<string> Get()
         {
-            //_logger.LogError("ServiceD Called Logs");
+            _logger.LogInformation("ServiceD Called Logs",LogCode.Information);
 
             string svf = await GetHealthInfo("ServiceF", "DEFAULT_GROUP", "api/HealthCheck");
 

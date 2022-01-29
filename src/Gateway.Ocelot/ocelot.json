@@ -1,0 +1,354 @@
+{
+  // 转发路由，数组中的每个元素都是某个服务的一组路由转发规则
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/servicetoken/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/api/{everything}",
+
+      "UseServiceDiscovery": true,
+      "ServiceName": "ServiceToken",
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询     
+      }
+    },
+    {
+      // 上游客户端请求路由模板
+      "UpstreamPathTemplate": "/servicea/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      //下游服务提供方相关配置，包括服务器地址、端口、协议和路径模板。
+      //如果使用服务发现需要配置UseServiceDiscovery和ServiceName,并注释DownstreamHostAndPorts项
+      "DownstreamScheme": "http", // Uri方案，http、https
+      "DownstreamPathTemplate": "/api/{everything}", // 下游（服务提供方）服务路由模板
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "10.0.20.101",
+          "Port": 9001
+        },
+        {
+          "Host": "10.0.20.102",
+          "Port": 9001
+        },
+        {
+          "Host": "10.0.20.103",
+          "Port": 9001
+        }
+      ],
+
+      //"UseServiceDiscovery": true,
+      //"ServiceName": "ServiceA",
+
+      ////鉴权配置
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "OcelotKey",
+      //  "AllowedScopes": [ "ServiceA" ]
+      //},
+
+      //负载均衡配置
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询     
+      },
+
+      ////熔断配置
+      //"QoSOptions": {
+      //  "ExceptionsAllowedBeforeBreaking": 5,
+      //  "DurationOfBreak": 10000,
+      //  "TimeoutValue": 50000
+      //},
+
+      //限流配置
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 5, //retry after 5s
+        "Limit": 1000 //单个client，指定period周期内允许最多访问次数
+      }
+    },
+    {
+      // 上游客户端请求路由模板
+      "UpstreamPathTemplate": "/serviceauth/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      //下游服务提供方相关配置，包括服务器地址、端口、协议和路径模板。
+      //如果使用服务发现需要配置UseServiceDiscovery和ServiceName,并注释DownstreamHostAndPorts项
+      "DownstreamScheme": "http", // Uri方案，http、https
+      "DownstreamPathTemplate": "/api/{everything}", // 下游（服务提供方）服务路由模板
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "10.0.20.101",
+          "Port": 9001
+        },
+        {
+          "Host": "10.0.20.102",
+          "Port": 9001
+        },
+        {
+          "Host": "10.0.20.103",
+          "Port": 9001
+        }
+      ],
+
+      //鉴权配置
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotKey",
+        "AllowedScopes": [ "ServiceA" ]
+      },
+
+      //负载均衡配置
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询     
+      },
+
+      ////熔断配置
+      //"QoSOptions": {
+      //  "ExceptionsAllowedBeforeBreaking": 5,
+      //  "DurationOfBreak": 10000,
+      //  "TimeoutValue": 50000
+      //},
+
+      //限流配置
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 5, //retry after 5s
+        "Limit": 1000 //单个client，指定period周期内允许最多访问次数
+      }
+    },
+    {
+      // 上游客户端请求路由模板
+      "UpstreamPathTemplate": "/serviceb/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      //下游服务提供方相关配置，包括服务器地址、端口、协议和路径模板。
+      //如果使用服务发现需要配置UseServiceDiscovery和ServiceName,并注释DownstreamHostAndPorts项
+      "DownstreamScheme": "http", // Uri方案，http、https
+      "DownstreamPathTemplate": "/api/{everything}", // 下游（服务提供方）服务路由模板
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "10.0.20.101",
+      //    "Port": 9001
+      //  },
+      //  {
+      //    "Host": "10.0.20.102",
+      //    "Port": 9001
+      //  },
+      //  {
+      //    "Host": "10.0.20.103",
+      //    "Port": 9001
+      //  }
+      //],
+
+      "UseServiceDiscovery": true,
+      "ServiceName": "ServiceB",
+
+      ////鉴权配置
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "OcelotKey",
+      //  "AllowedScopes": [ "ServiceA" ]
+      //},
+
+      //负载均衡配置
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询     
+      },
+
+      ////熔断配置
+      //"QoSOptions": {
+      //  "ExceptionsAllowedBeforeBreaking": 5,
+      //  "DurationOfBreak": 10000,
+      //  "TimeoutValue": 50000
+      //},
+
+      //限流配置
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 5, //retry after 5s
+        "Limit": 1000 //单个client，指定period周期内允许最多访问次数
+      }
+    },
+    {
+      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/api/{everything}",
+      "UpstreamPathTemplate": "/serviced/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      "UseServiceDiscovery": true,
+      "ServiceName": "ServiceD",
+
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotKey",
+        "AllowedScopes": [ "ServiceD" ]
+      },
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询     
+      }
+    },
+    {
+      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/api/{everything}",
+      "UpstreamPathTemplate": "/servicef/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      "UseServiceDiscovery": true,
+      "ServiceName": "ServiceF",
+
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotKey",
+        "AllowedScopes": [ "ServiceF" ]
+      },
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询     
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/swms/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/api/{everything}",
+
+      "UseServiceDiscovery": true,
+      "ServiceName": "swms",
+
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "OcelotKey",
+      //  "AllowedScopes": [ "swms" ]
+      //},
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询     
+      },
+
+      //熔断配置
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 10, //10次异常触发断路保护
+        "DurationOfBreak": 5000, //5s断路持续时间
+        "TimeoutValue": 120000 //120s超时
+      },
+
+      //限流配置
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 5, //retry after 5s
+        "Limit": 100000 //指定period周期内允许最多访问次数
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/swms2/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/api/{everything}",
+
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "10.0.20.101",
+          "Port": 5001
+        },
+        {
+          "Host": "10.0.20.102",
+          "Port": 5001
+        },
+        {
+          "Host": "10.0.20.103",
+          "Port": 5001
+        }
+      ],
+
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "OcelotKey",
+      //  "AllowedScopes": [ "swms" ]
+      //},
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询     
+      },
+
+      ////熔断配置
+      //"QoSOptions": {
+      //  "ExceptionsAllowedBeforeBreaking": 10, //3次异常触发断路保护
+      //  "DurationOfBreak": 5000, //5s断路持续时间
+      //  "TimeoutValue": 60000 //60s超时
+      //},
+
+      //限流配置
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 5, //retry after 5s
+        "Limit": 10000 //单个client，指定period周期内允许最多访问次数
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/stock/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+
+      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/{everything}",
+
+      "UseServiceDiscovery": true,
+      "ServiceName": "stock-nacos-demo",
+
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "OcelotKey",
+      //  "AllowedScopes": [ "swms" ]
+      //},
+
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询     
+      },
+
+      ////熔断配置
+      //"QoSOptions": {
+      //  "ExceptionsAllowedBeforeBreaking": 3, //3次异常触发断路保护
+      //  "DurationOfBreak": 5000, //5s断路持续时间
+      //  "TimeoutValue": 10000 //10s超时
+      //},
+
+      //限流配置
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 5, //retry after 5s
+        "Limit": 10000 //单个client，指定period周期内允许最多访问次数
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    //"BaseUrl": null,
+    //"DownstreamScheme": "http",
+    //"HttpHandlerOptions": {
+    //  "AllowAutoRedirect": false,
+    //  "UseCookieContainer": false,
+    //  "UseTracing": false
+    //},
+    //"LoadBalancerOptions": {
+    //  "Type": "LeastConnection",
+    //  "Key": null,
+    //  "Expiry": 0
+    //},
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false,
+      "QuotaExceededMessage": "rate limit test!",
+      "HttpStatusCode": 999,
+      "ClientIdHeader": ""
+    },
+    "ServiceDiscoveryProvider": {
+      "Type": "Nacos"
+    }
+  }
+}

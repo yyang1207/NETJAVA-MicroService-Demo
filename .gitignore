@@ -38,3 +38,12 @@
 /src/SkyWalkingAgentExtension/obj
 /src/SkyWalkingAgentExtension/bin
 /src/ComponentsSelectTest.ServiceA/bin/Release/netcoreapp3.1
+/src/ComponentsSelectTest.ServiceB/bin/Release/netcoreapp3.1
+/src/ComponentsSelectTest.Caller/bin/Release/netcoreapp3.1
+/DBConfig/obj
+/DBConfig/bin/Debug/netcoreapp3.1
+/src/DBConfig/obj
+/src/DBConfig/bin/Debug/netcoreapp3.1
+/swmsweb/obj
+/swmsweb/bin
+/swmsweb/logs

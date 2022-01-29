@@ -26,6 +26,17 @@ namespace ComponentsSelectTest.Caller
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddOmegaCore(option =>
+            //{
+            //    // your alpha-server address
+            //    option.GrpcServerAddress = "10.0.20.56:8080";
+            //    // your app identification
+            //    option.InstanceId = "Caller";
+            //    // your app name
+            //    option.ServiceName = "Caller";
+            //});
+
+
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             //注册服务时使用

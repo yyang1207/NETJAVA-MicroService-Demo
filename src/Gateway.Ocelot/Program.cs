@@ -21,8 +21,9 @@ namespace Gateway.Ocelot
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                }).ConfigureAppConfiguration(builder => {
-                    builder.AddJsonFile("ocelotconfig.json", true, true);
+                })
+                .ConfigureAppConfiguration(builder => {
+                    builder.AddJsonFile("ocelot.json", true, true);
                 });
     }
 }

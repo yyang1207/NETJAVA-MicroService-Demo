@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Nacos.AspNetCore.V2;
+using SkyWalkingAgentExtension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,7 @@ namespace ComponentsSelectTest.ServiceD
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseRequestResponseLogging();
 
             app.UseEndpoints(endpoints =>
             {

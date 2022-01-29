@@ -45,17 +45,17 @@ namespace ComponentsSelect.ServiceToken
             services.AddNacosAspNet(Configuration);
             services.AddControllers();
 
-            // 添加Swagger
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ServiceToken", Version = "v1" });
-                // 获取xml文件名
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                // 获取xml文件路径
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                // 添加控制器层注释，true表示显示控制器注释
-                c.IncludeXmlComments(xmlPath, true);
-            });
+            //// 添加Swagger
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ServiceToken", Version = "v1" });
+            //    // 获取xml文件名
+            //    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            //    // 获取xml文件路径
+            //    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            //    // 添加控制器层注释，true表示显示控制器注释
+            //    c.IncludeXmlComments(xmlPath, true);
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,11 +73,11 @@ namespace ComponentsSelect.ServiceToken
             
             app.UseRouting();
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ServiceToken API v1");
-            });
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "ServiceToken API v1");
+            //});
 
             app.UseEndpoints(endpoints =>
             {
